@@ -99,55 +99,40 @@ nav {
 
 /* ── HERO ── */
 .hero {
-  position: relative;
-  min-height: 480px;
-  display: flex;
-  align-items: flex-end;
-  background: var(--green-dark);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 500px;
   overflow: hidden;
 }
 
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, #0d2018 0%, #1B3A2D 50%, #2D5C43 100%);
+.hero-left {
+  background: var(--green-dark);
+  padding: 5rem 3rem 5rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-right {
+  position: relative;
+  background-image: url('house.jpg');
   background-size: cover;
   background-position: center;
 }
 
-.hero-overlay {
+/* gradient that bleeds left over the image, blending into the dark green */
+.hero-fade {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgba(10,25,17,0.88) 0%, rgba(10,25,17,0.6) 60%, rgba(10,25,17,0.3) 100%);
+  background: linear-gradient(to right, var(--green-dark) 0%, rgba(27,58,45,0.6) 35%, transparent 70%);
 }
 
-.hero-split {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: center;
-  gap: 4rem;
-}
-
-.hero-text { flex: 1; }
-
-.hero-image-wrap {
-  position: relative;
-  flex-shrink: 0;
-}
-
-.hero-photo {
-  display: block;
-  width: 420px;
-  height: 320px;
-  object-fit: cover;
-  border-radius: 4px;
-  border: 3px solid rgba(196,162,74,0.4);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-}
-
-@media (max-width: 900px) {
-  .hero-split { grid-template-columns: 1fr; }
-  .hero-image-wrap { display: none; }
+@media (max-width: 768px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-right { display: none; }
+  .hero-left { padding: 4rem 2rem; }
 }
 
 .hero-content {
