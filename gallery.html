@@ -12,91 +12,95 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
     }
-    .gallery-card {
+
+    /* Featured photo card — spans 2 columns */
+    .gallery-card-featured {
+      grid-column: span 2;
       position: relative;
-      overflow: hidden;
       border-radius: 4px;
-      aspect-ratio: 4/3;
-      background: var(--green-dark);
-      cursor: pointer;
+      overflow: hidden;
+      min-height: 320px;
     }
-    .gallery-card img {
+
+    .gallery-card-featured img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
-      transition: transform 0.4s ease;
-      filter: brightness(0.85);
+      filter: brightness(0.75);
+      transition: filter 0.4s;
     }
-    .gallery-card:hover img {
-      transform: scale(1.05);
-      filter: brightness(0.7);
+
+    .gallery-card-featured:hover img {
+      filter: brightness(0.6);
     }
-    .gallery-card-overlay {
+
+    .gallery-card-featured .card-info {
       position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(10,25,17,0.92) 0%, transparent 55%);
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 2rem;
+      background: linear-gradient(to top, rgba(10,25,17,0.92) 0%, transparent 100%);
+    }
+
+    /* Project cards */
+    .gallery-card {
+      background: var(--green-dark);
+      border-radius: 4px;
+      padding: 2rem;
+      border: 1px solid rgba(255,255,255,0.07);
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
-      padding: 1.5rem;
-      transition: background 0.3s;
+      justify-content: space-between;
+      min-height: 200px;
+      transition: border-color 0.2s, transform 0.2s;
     }
-    .gallery-card:hover .gallery-card-overlay {
-      background: linear-gradient(to top, rgba(10,25,17,0.97) 0%, rgba(10,25,17,0.3) 55%);
+
+    .gallery-card:hover {
+      border-color: rgba(196,162,74,0.35);
+      transform: translateY(-2px);
     }
-    .gallery-card-label {
-      font-size: 0.68rem;
-      letter-spacing: 0.15em;
+
+    .card-year {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--gold);
       font-weight: 600;
-      margin-bottom: 0.3rem;
     }
-    .gallery-card h3 {
-      font-size: 1rem;
-      color: var(--white);
+
+    .card-title {
       font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      color: var(--white);
+      margin-top: 0.75rem;
+      margin-bottom: 0.4rem;
+      line-height: 1.3;
     }
-    .gallery-card p {
+
+    .card-location {
       font-size: 0.8rem;
-      color: rgba(255,255,255,0.55);
-      margin-top: 0.3rem;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease, opacity 0.3s;
-      opacity: 0;
-    }
-    .gallery-card:hover p {
-      max-height: 60px;
-      opacity: 1;
+      color: rgba(255,255,255,0.5);
     }
 
-    /* Gradient placeholder cards for projects without photos */
-    .gallery-card.placeholder-1 { background: linear-gradient(135deg, #1a3d2b 0%, #2d6b48 100%); }
-    .gallery-card.placeholder-2 { background: linear-gradient(135deg, #0d2018 0%, #1B3A2D 100%); }
-    .gallery-card.placeholder-3 { background: linear-gradient(135deg, #1f4a36 0%, #3D7A58 100%); }
-    .gallery-card.placeholder-4 { background: linear-gradient(135deg, #162d21 0%, #254d38 100%); }
-
-    .placeholder-pattern {
-      position: absolute;
-      inset: 0;
-      opacity: 0.06;
-      background-image: repeating-linear-gradient(
-        45deg,
-        #fff 0,
-        #fff 1px,
-        transparent 0,
-        transparent 50%
-      );
-      background-size: 20px 20px;
+    .card-client {
+      font-size: 0.75rem;
+      color: rgba(196,162,74,0.7);
+      font-weight: 500;
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
     }
 
     @media (max-width: 768px) {
       .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-card-featured { grid-column: span 2; }
     }
+
     @media (max-width: 480px) {
       .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-card-featured { grid-column: span 1; }
     }
   </style>
 </head>
@@ -132,99 +136,101 @@
 
     <div class="gallery-grid">
 
-      <!-- Real photo 1 -->
+      <!-- Featured photo -->
+      <div class="gallery-card-featured">
+        <img src="index4.jpg" alt="Residential development — Bristol and South West" />
+        <div class="card-info">
+          <div class="card-year">Bristol &amp; South West</div>
+          <div class="card-title">Residential &amp; Commercial Land</div>
+          <div class="card-location">Off-market introductions across the region since 1987</div>
+        </div>
+      </div>
+
+      <!-- Project card 1 -->
       <div class="gallery-card">
-        <img src="gbland.jpg" alt="Gordon Bennett Associates — Bristol land and property" />
-        <div class="gallery-card-overlay">
-          <div class="gallery-card-label">Bristol</div>
-          <h3>Gordon Bennett Associates</h3>
-          <p>Specialist land and property introductions across the South West since 1987.</p>
+        <div>
+          <div class="card-year">1995</div>
+          <div class="card-title">Pooles Wharf</div>
+          <div class="card-location">Hotwells, Bristol</div>
         </div>
+        <div class="card-client">Client — Crest Homes</div>
       </div>
 
-      <!-- Real photo 2 -->
+      <!-- Project card 2 -->
       <div class="gallery-card">
-        <img src="index4.jpg" alt="Land site — Bristol and South West" />
-        <div class="gallery-card-overlay">
-          <div class="gallery-card-label">South West</div>
-          <h3>Land &amp; Property Sites</h3>
-          <p>Off-market introductions for residential, commercial and leisure development.</p>
+        <div>
+          <div class="card-year">1997</div>
+          <div class="card-title">Royal York Hotel</div>
+          <div class="card-location">Bath</div>
         </div>
+        <div class="card-client">Client — Waterfront Holdings</div>
       </div>
 
-      <!-- Placeholder: Pooles Wharf -->
-      <div class="gallery-card placeholder-1">
-        <div class="placeholder-pattern"></div>
-        <div class="gallery-card-overlay">
-          <div class="gallery-card-label">Hotwells, Bristol · 1995</div>
-          <h3>Pooles Wharf</h3>
-          <p>Residential development introduction for Crest Homes.</p>
+      <!-- Project card 3 -->
+      <div class="gallery-card">
+        <div>
+          <div class="card-year">1998</div>
+          <div class="card-title">The Bay Hotel</div>
+          <div class="card-location">Portishead</div>
         </div>
+        <div class="card-client">Client — N.T. Voisey</div>
       </div>
 
-      <!-- Placeholder: Bay Hotel -->
-      <div class="gallery-card placeholder-2">
-        <div class="placeholder-pattern"></div>
-        <div class="gallery-card-overlay">
-          <div class="gallery-card-label">Portishead · 1998</div>
-          <h3>The Bay Hotel</h3>
-          <p>Property introduction for N.T. Voisey.</p>
+      <!-- Project card 4 -->
+      <div class="gallery-card">
+        <div>
+          <div class="card-year">2002</div>
+          <div class="card-title">Bear Yard</div>
+          <div class="card-location">Hotwells, Bristol</div>
         </div>
+        <div class="card-client">Client — Trinity Garage</div>
       </div>
 
-      <!-- Placeholder: Royal York Hotel -->
-      <div class="gallery-card placeholder-3">
-        <div class="placeholder-pattern"></div>
-        <div class="gallery-card-overlay">
-          <div class="gallery-card-label">Bath · 1997</div>
-          <h3>Royal York Hotel</h3>
-          <p>Hotel property introduction for Waterfront Holdings.</p>
+      <!-- Project card 5 -->
+      <div class="gallery-card">
+        <div>
+          <div class="card-year">2006</div>
+          <div class="card-title">Springfield Farm</div>
+          <div class="card-location">Syston, Bristol</div>
         </div>
+        <div class="card-client">Client — Bloor Homes</div>
       </div>
 
-      <!-- Placeholder: The Granary -->
-      <div class="gallery-card placeholder-4">
-        <div class="placeholder-pattern"></div>
-        <div class="gallery-card-overlay">
-          <div class="gallery-card-label">Welsh Back, Bristol</div>
-          <h3>The Granary</h3>
-          <p>Commercial conversion introduction in Bristol city centre.</p>
+      <!-- Project card 6 -->
+      <div class="gallery-card">
+        <div>
+          <div class="card-year">2007</div>
+          <div class="card-title">Willstock Farm</div>
+          <div class="card-location">Bridgwater</div>
         </div>
+        <div class="card-client">Client — Bloor Homes</div>
       </div>
 
-      <!-- Placeholder: Bear Yard -->
-      <div class="gallery-card placeholder-1">
-        <div class="placeholder-pattern"></div>
-        <div class="gallery-card-overlay">
-          <div class="gallery-card-label">Hotwells, Bristol · 2002</div>
-          <h3>Bear Yard</h3>
-          <p>Site introduction for Trinity Garage.</p>
+      <!-- Project card 7 -->
+      <div class="gallery-card">
+        <div>
+          <div class="card-year">2008</div>
+          <div class="card-title">Former Radfords Site</div>
+          <div class="card-location">Chew Stoke</div>
         </div>
+        <div class="card-client">Client — Charles Church</div>
       </div>
 
-      <!-- Placeholder: Springfield Farm -->
-      <div class="gallery-card placeholder-2">
-        <div class="placeholder-pattern"></div>
-        <div class="gallery-card-overlay">
-          <div class="gallery-card-label">Syston, Bristol · 2006</div>
-          <h3>Springfield Farm</h3>
-          <p>Residential land introduction for Bloor Homes.</p>
+      <!-- Project card 8 -->
+      <div class="gallery-card">
+        <div>
+          <div class="card-year">2005</div>
+          <div class="card-title">Hill Common Road</div>
+          <div class="card-location">Chippenham</div>
         </div>
-      </div>
-
-      <!-- Placeholder: Willstock Farm -->
-      <div class="gallery-card placeholder-3">
-        <div class="placeholder-pattern"></div>
-        <div class="gallery-card-overlay">
-          <div class="gallery-card-label">Bridgwater · 2007</div>
-          <h3>Willstock Farm</h3>
-          <p>Strategic land introduction for Bloor Homes.</p>
-        </div>
+        <div class="card-client">Client — Midas Homes</div>
       </div>
 
     </div>
 
-    <p style="margin-top: 2.5rem; font-size: 0.85rem; color: var(--text-light); text-align: center;">More project photography coming soon. <a href="contact.html">Get in touch</a> for further information on specific sites.</p>
+    <p style="margin-top: 2.5rem; font-size: 0.85rem; color: var(--text-light); text-align: center;">
+      For more information on any specific project, <a href="contact.html">get in touch</a> or view the full <a href="projects.html">projects list</a>.
+    </p>
   </div>
 </section>
 
