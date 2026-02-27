@@ -46,19 +46,42 @@
 
     /* Project cards */
     .gallery-card {
-      background: var(--green-dark);
+      position: relative;
       border-radius: 4px;
-      padding: 2rem;
-      border: 1px solid rgba(255,255,255,0.07);
+      overflow: hidden;
+      min-height: 200px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      min-height: 200px;
-      transition: border-color 0.2s, transform 0.2s;
+      transition: transform 0.2s;
+    }
+
+    .gallery-card-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.45);
+      transition: filter 0.4s, transform 0.4s;
+    }
+
+    .gallery-card:hover .gallery-card-img {
+      filter: brightness(0.3);
+      transform: scale(1.04);
+    }
+
+    .gallery-card-body {
+      position: relative;
+      z-index: 1;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
     }
 
     .gallery-card:hover {
-      border-color: rgba(196,162,74,0.35);
       transform: translateY(-2px);
     }
 
@@ -148,82 +171,106 @@
 
       <!-- Project card 1 -->
       <div class="gallery-card">
-        <div>
-          <div class="card-year">1995</div>
-          <div class="card-title">Pooles Wharf</div>
-          <div class="card-location">Hotwells, Bristol</div>
+        <img class="gallery-card-img" src="index4.jpg" alt="Pooles Wharf, Hotwells, Bristol" />
+        <div class="gallery-card-body">
+          <div>
+            <div class="card-year">1995</div>
+            <div class="card-title">Pooles Wharf</div>
+            <div class="card-location">Hotwells, Bristol</div>
+          </div>
+          <div class="card-client">Client — Crest Homes</div>
         </div>
-        <div class="card-client">Client — Crest Homes</div>
       </div>
 
       <!-- Project card 2 -->
       <div class="gallery-card">
-        <div>
-          <div class="card-year">1997</div>
-          <div class="card-title">Royal York Hotel</div>
-          <div class="card-location">Bath</div>
+        <img class="gallery-card-img" src="house.jpg" alt="Royal York Hotel, Bath" />
+        <div class="gallery-card-body">
+          <div>
+            <div class="card-year">1997</div>
+            <div class="card-title">Royal York Hotel</div>
+            <div class="card-location">Bath</div>
+          </div>
+          <div class="card-client">Client — Waterfront Holdings</div>
         </div>
-        <div class="card-client">Client — Waterfront Holdings</div>
       </div>
 
       <!-- Project card 3 -->
       <div class="gallery-card">
-        <div>
-          <div class="card-year">1998</div>
-          <div class="card-title">The Bay Hotel</div>
-          <div class="card-location">Portishead</div>
+        <img class="gallery-card-img" src="gbland.jpg" alt="The Bay Hotel, Portishead" />
+        <div class="gallery-card-body">
+          <div>
+            <div class="card-year">1998</div>
+            <div class="card-title">The Bay Hotel</div>
+            <div class="card-location">Portishead</div>
+          </div>
+          <div class="card-client">Client — N.T. Voisey</div>
         </div>
-        <div class="card-client">Client — N.T. Voisey</div>
       </div>
 
       <!-- Project card 4 -->
       <div class="gallery-card">
-        <div>
-          <div class="card-year">2002</div>
-          <div class="card-title">Bear Yard</div>
-          <div class="card-location">Hotwells, Bristol</div>
+        <img class="gallery-card-img" src="index4.jpg" alt="Bear Yard, Hotwells, Bristol" />
+        <div class="gallery-card-body">
+          <div>
+            <div class="card-year">2002</div>
+            <div class="card-title">Bear Yard</div>
+            <div class="card-location">Hotwells, Bristol</div>
+          </div>
+          <div class="card-client">Client — Trinity Garage</div>
         </div>
-        <div class="card-client">Client — Trinity Garage</div>
       </div>
 
       <!-- Project card 5 -->
       <div class="gallery-card">
-        <div>
-          <div class="card-year">2006</div>
-          <div class="card-title">Springfield Farm</div>
-          <div class="card-location">Syston, Bristol</div>
+        <img class="gallery-card-img" src="house.jpg" alt="Springfield Farm, Syston, Bristol" />
+        <div class="gallery-card-body">
+          <div>
+            <div class="card-year">2006</div>
+            <div class="card-title">Springfield Farm</div>
+            <div class="card-location">Syston, Bristol</div>
+          </div>
+          <div class="card-client">Client — Bloor Homes</div>
         </div>
-        <div class="card-client">Client — Bloor Homes</div>
       </div>
 
       <!-- Project card 6 -->
       <div class="gallery-card">
-        <div>
-          <div class="card-year">2007</div>
-          <div class="card-title">Willstock Farm</div>
-          <div class="card-location">Bridgwater</div>
+        <img class="gallery-card-img" src="gbland.jpg" alt="Willstock Farm, Bridgwater" />
+        <div class="gallery-card-body">
+          <div>
+            <div class="card-year">2007</div>
+            <div class="card-title">Willstock Farm</div>
+            <div class="card-location">Bridgwater</div>
+          </div>
+          <div class="card-client">Client — Bloor Homes</div>
         </div>
-        <div class="card-client">Client — Bloor Homes</div>
       </div>
 
       <!-- Project card 7 -->
       <div class="gallery-card">
-        <div>
-          <div class="card-year">2008</div>
-          <div class="card-title">Former Radfords Site</div>
-          <div class="card-location">Chew Stoke</div>
+        <img class="gallery-card-img" src="index4.jpg" alt="Former Radfords Site, Chew Stoke" />
+        <div class="gallery-card-body">
+          <div>
+            <div class="card-year">2008</div>
+            <div class="card-title">Former Radfords Site</div>
+            <div class="card-location">Chew Stoke</div>
+          </div>
+          <div class="card-client">Client — Charles Church</div>
         </div>
-        <div class="card-client">Client — Charles Church</div>
       </div>
 
       <!-- Project card 8 -->
       <div class="gallery-card">
-        <div>
-          <div class="card-year">2005</div>
-          <div class="card-title">Hill Common Road</div>
-          <div class="card-location">Chippenham</div>
+        <img class="gallery-card-img" src="house.jpg" alt="Hill Common Road, Chippenham" />
+        <div class="gallery-card-body">
+          <div>
+            <div class="card-year">2005</div>
+            <div class="card-title">Hill Common Road</div>
+            <div class="card-location">Chippenham</div>
+          </div>
+          <div class="card-client">Client — Midas Homes</div>
         </div>
-        <div class="card-client">Client — Midas Homes</div>
       </div>
 
     </div>
