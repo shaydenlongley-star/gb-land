@@ -121,6 +121,35 @@ nav {
   background: linear-gradient(to right, rgba(10,25,17,0.88) 0%, rgba(10,25,17,0.6) 60%, rgba(10,25,17,0.3) 100%);
 }
 
+.hero-split {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 4rem;
+}
+
+.hero-text { flex: 1; }
+
+.hero-image-wrap {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.hero-photo {
+  display: block;
+  width: 420px;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 3px solid rgba(196,162,74,0.4);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+@media (max-width: 900px) {
+  .hero-split { grid-template-columns: 1fr; }
+  .hero-image-wrap { display: none; }
+}
+
 .hero-content {
   position: relative;
   max-width: 1100px;
