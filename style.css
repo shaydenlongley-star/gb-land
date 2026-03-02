@@ -635,6 +635,10 @@ footer a:hover { color: var(--gold); }
     text-align: center;
   }
 
+  .advisers-grid {
+    grid-template-columns: 1fr !important;
+  }
+
   .intro-grid,
   .coverage-grid,
   .contact-grid,
