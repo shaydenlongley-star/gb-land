@@ -71,6 +71,7 @@ nav {
 
 .nav-hamburger { display: none; }
 .mobile-menu { display: none; }
+.eyebrow-break { display: none; }
 
 .nav-links {
   display: flex;
@@ -642,6 +643,9 @@ footer a:hover { color: var(--gold); }
   .usp-grid {
     grid-template-columns: 1fr !important;
   }
+
+  .eyebrow-sep { display: none; }
+  .eyebrow-break { display: inline; }
 
   .projects-table {
     font-size: 0.72rem;
