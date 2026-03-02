@@ -639,6 +639,10 @@ footer a:hover { color: var(--gold); }
     grid-template-columns: 1fr !important;
   }
 
+  .usp-grid {
+    grid-template-columns: 1fr !important;
+  }
+
   .intro-grid,
   .coverage-grid,
   .contact-grid,
